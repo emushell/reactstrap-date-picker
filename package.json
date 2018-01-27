@@ -4,10 +4,14 @@
   "description": "Reactstrap date picker",
   "private": true,
   "main": "index.js",
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "reactstrap": "^5.0.0-alpha.4"
+  },
   "dependencies": {
     "bootstrap": "^4.0.0",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
     "reactstrap": "^5.0.0-alpha.4"
   },
   "keywords": [
@@ -54,6 +58,7 @@
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.5.1",
     "jest": "^22.1.4",
+    "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-test-render": "^1.1.1",
     "react-transition-group": "^2.2.1",
