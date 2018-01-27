@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Container, Row, Col} from 'reactstrap';
 //import '/bootstrap/dist/css/bootstrap.css';
 
-import DatePicker from './DatePicker.jsx';
+import DatePicker from '../src/DatePicker.jsx';
 
 class DatePickerApp extends Component {
 	constructor(props) {
@@ -31,4 +31,4 @@ class DatePickerApp extends Component {
 	}
 }
 
-ReactDOM.render(<DatePickerApp/>, document.getElementById('datePickerApp'));
+ReactDOM.render(<DatePickerApp/>, document.getElementById('date-picker-app'));

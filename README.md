@@ -1,1 +1,1 @@
-# reactstrap-date-picker
+# Date Picker based on reacstrap

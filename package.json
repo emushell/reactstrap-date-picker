@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "start": "npm run build",
-    "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --inline --content-base ./src --hot",
+    "build": "webpack --config ./example/webpack.example.config.js -d && webpack-dev-server --inline --content-base ./example --config ./example/webpack.example.config.js --hot",
     "build:prod": "webpack -p",
     "lint": "eslint --ext .jsx src --fix",
     "test": "jest",
