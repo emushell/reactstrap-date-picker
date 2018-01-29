@@ -27,8 +27,9 @@
   ],
   "scripts": {
     "start": "npm run build",
-    "build": "webpack --config ./example/webpack.example.config.js -d && webpack-dev-server --inline --content-base ./example --config ./example/webpack.example.config.js --hot",
-    "build:prod": "webpack -p",
+    "build": "webpack-dev-server --inline --content-base ./example --config ./example/webpack.example.config.js --hot",
+    "build:dev": "webpack --config ./example/webpack.example.config.js -d",
+    "build:prod": "webpack --config ./example/webpack.example.config.js -p",
     "lint": "eslint --ext .jsx src --fix",
     "test": "jest",
     "test:watch": "jest --watch",

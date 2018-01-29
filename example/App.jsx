@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {Container, Row, Col} from 'reactstrap';
+import {Container, Row, Col, Card, CardBody} from 'reactstrap';
 
 import DatePicker from '../src/DatePicker.jsx';
 
@@ -26,20 +26,38 @@ class DatePickerApp extends Component {
 				</Container>
 				<Container className={'pt-2'}>
 					<Row>
-						<Col>
+						<Col className={'pt-4'}>
 							<h2 className={'border-bottom'}>Examples</h2>
 						</Col>
 					</Row>
 					<Row>
+						<Col>
+							<h4>Default</h4>
+						</Col>
+					</Row>
+					<Row>
 						<Col xs={'6'}>
-							<Row/>
+							<Card>
+								<CardBody>
+									<pre style={{'margin-bottom': 0}}>
+										<code>
+											{'<DatePicker'}
+											<br/>
+											{'	defaultDate={'}<strong>{'this'}</strong>{'.state.defaultDate}'}
+											<br/>
+											{'	onChange={'}<strong>{'this'}</strong>{'.handleOnChange}'}
+											<br/>
+											{'/>'}
+										</code>
+									</pre>
+								</CardBody>
+							</Card>
 						</Col>
 						<Col xs={'6'}>
 							<Row className={'justify-content-center'}>
 								<Col xs="6">
-									<DatePicker onChange={this.handleOnChange}
-										defaultDate={new Date().toISOString()}
-										disabled={false}
+									<DatePicker defaultDate={new Date().toISOString()}
+										onChange={this.handleOnChange}
 									/>
 								</Col>
 							</Row>
