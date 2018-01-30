@@ -1,5 +1,5 @@
 import React from 'react';
-import {CalendarTableRows} from '../src/CalendarTableRows';
+import {TableBodyRows} from '../src/TableBodyRows';
 
 const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const displayDate = new Date();
@@ -15,8 +15,8 @@ const weeksInMonth = (month, year) => {
 test('Render a calendar table rows - test week count in month', () => {
 	const onChange = jest.fn();
 	const wrapper = shallow(
-		<CalendarTableRows daysInMonth={DAYS_IN_MONTH} displayDate={displayDate} selectedDate={selectedDate}
-						   onChange={onChange}/>
+		<TableBodyRows daysInMonth={DAYS_IN_MONTH} displayDate={displayDate} selectedDate={selectedDate}
+					   onChange={onChange}/>
 	);
 	expect(wrapper.find('tr').length).toEqual(weeksInMonth(displayDate.getMonth() + 1, displayDate.getFullYear()));
 });
@@ -33,7 +33,7 @@ test('Render calendar table rows - test selected day - true', () => {
 	};
 
 	const wrapper = shallow(
-		<CalendarTableRows {...attributes}/>
+		<TableBodyRows {...attributes}/>
 	);
 	expect(wrapper.find('.bg-primary').text()).toEqual(selectedDate.getDate().toString());
 });
@@ -48,7 +48,7 @@ test('Render calendar table rows - test selected day - false', () => {
 	};
 
 	const wrapper = shallow(
-		<CalendarTableRows {...attributes}/>
+		<TableBodyRows {...attributes}/>
 	);
 	expect(wrapper.hasClass('bg-primary')).toEqual(false);
 });
@@ -64,7 +64,7 @@ test('Render calendar table rows - test current day', () => {
 	};
 
 	const wrapper = shallow(
-		<CalendarTableRows {...attributes}/>
+		<TableBodyRows {...attributes}/>
 	);
 	expect(wrapper.find('.text-primary').text()).toEqual(displayDate.getDate().toString());
 });
@@ -83,7 +83,7 @@ test('Render calendar table rows - test on click', () => {
 	};
 
 	const wrapper = shallow(
-		<CalendarTableRows {...attributes}/>
+		<TableBodyRows {...attributes}/>
 	);
 
 	wrapper.find('.bg-primary').simulate('click', {target: {innerHTML: selectedDate.getDate()}});
@@ -103,7 +103,7 @@ test('Render calendar table rows - test leap year (Feb - 29 days)', () => {
 	};
 
 	const wrapper = shallow(
-		<CalendarTableRows {...attributes}/>
+		<TableBodyRows {...attributes}/>
 	);
 
 	let maxDay = 0;

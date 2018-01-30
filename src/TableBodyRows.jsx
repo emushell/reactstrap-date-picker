@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-export class CalendarTableRows extends Component {
+export class TableBodyRows extends Component {
 
 	constructor(props) {
 		super(props);
@@ -97,14 +97,14 @@ export class CalendarTableRows extends Component {
 		}
 
 		return (
-			<tbody>
+			<React.Fragment>
 				{weeks}
-			</tbody>
+			</React.Fragment>
 		);
 	}
 }
 
-CalendarTableRows.propTypes = {
+TableBodyRows.propTypes = {
 	daysInMonth: PropTypes.array.isRequired,
 	displayDate: PropTypes.instanceOf(Date),
 	selectedDate: PropTypes.instanceOf(Date),

@@ -39,7 +39,7 @@ class DatePickerApp extends Component {
 						<Col xs={'6'}>
 							<Card>
 								<CardBody>
-									<pre style={{'margin-bottom': 0}}>
+									<pre style={{marginBottom: 0}}>
 										<code>
 											{'<DatePicker'}
 											<br/>

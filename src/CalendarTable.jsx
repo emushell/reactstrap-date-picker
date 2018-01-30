@@ -1,7 +1,58 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {CalendarTableRows} from './CalendarTableRows.jsx';
-import {CalendarTableColumnHeader} from './CalendarTableColumnHeader.jsx';
+import {TableBodyRows} from './TableBodyRows.jsx';
+
+const TableHeader = (props) => {
+	return (
+		<thead>{props.children}</thead>
+	);
+};
+
+TableHeader.propTypes = {
+	children: PropTypes.object
+};
+
+const TableHeaderRow = (props) => {
+	return (
+		<tr className="text-muted">
+			{props.children}
+		</tr>
+	);
+};
+
+TableHeaderRow.propTypes = {
+	children: PropTypes.object
+};
+
+const HeaderCells = (props) => {
+
+	let className = 'week-day ' + (props.cellPadding ? props.cellPadding : 'p-1');
+
+	return (
+		props.dayLabels.map((label, index) => {
+			return <td key={index} className={className}>
+				<small>{label}</small>
+			</td>;
+		}
+		)
+	);
+};
+
+HeaderCells.propTypes = {
+	dayLabels: PropTypes.array
+};
+
+const TableBody = (props) => {
+	return (
+		<tbody>
+			{props.children}
+		</tbody>
+	);
+};
+
+TableBody.propTypes = {
+	children: PropTypes.object
+};
 
 export class CalendarTable extends Component {
 
@@ -16,12 +67,12 @@ export class CalendarTable extends Component {
 
 	render() {
 
-		let calendarTableColumnHeaderProps = {
+		let headerCellProps = {
 			dayLabels: this.props.dayLabels,
 			cellPadding: this.props.cellPadding
 		};
 
-		let calendarTableRowAttributes = {
+		let tableBodyProps = {
 			daysInMonth: this.props.daysInMonth,
 			displayDate: this.props.displayDate,
 			selectedDate: this.props.selectedDate,
@@ -32,10 +83,14 @@ export class CalendarTable extends Component {
 
 		return (
 			<table className="text-center">
-				<thead>
-					<CalendarTableColumnHeader {...calendarTableColumnHeaderProps}/>
-				</thead>
-				<CalendarTableRows {...calendarTableRowAttributes}/>
+				<TableHeader>
+					<TableHeaderRow>
+						<HeaderCells {...headerCellProps}/>
+					</TableHeaderRow>
+				</TableHeader>
+				<TableBody>
+					<TableBodyRows {...tableBodyProps}/>
+				</TableBody>
 			</table>
 		);
 	}
